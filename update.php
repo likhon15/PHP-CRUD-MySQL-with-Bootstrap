@@ -13,7 +13,7 @@ if (isset($_POST['submit'])) {
     // Update the record in the database
     $sql = "UPDATE `data` SET fname = '$fname', lname = '$lname', email = '$email', username = '$username', address = '$address', phone = '$phone' WHERE `index` = $id";
 
-    if (mysqli_query($con, $sql)) {
+    if (mysqli_query($conn, $sql)) {
         header("Location: list.php");
         exit;
     } else {
@@ -24,7 +24,7 @@ if (isset($_POST['submit'])) {
 // Fetch data for the selected ID
 $id = $_GET['id'];
 $sql = "SELECT * FROM `data` WHERE `index` = $id LIMIT 1";
-$result = mysqli_query($con, $sql);
+$result = mysqli_query($conn, $sql);
 $row = mysqli_fetch_assoc($result);
 ?>
 

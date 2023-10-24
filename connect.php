@@ -5,10 +5,10 @@
     $username = "root";
     $password = "";
     $dbname = "test";
-    $con = mysqli_connect($host, $username, $password, $dbname);
+    $conn = mysqli_connect($host, $username, $password, $dbname);
     
     // Check if the connection is successful
-    if (!$con) {
+    if (!$conn) {
         echo 'connection failed!';
     }
 

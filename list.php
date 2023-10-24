@@ -2,8 +2,8 @@
 include 'connect.php'; // Include the database connection script
 
 // Fetch data from the 'data' table
-$query = "SELECT * FROM data";
-$result = mysqli_query($con, $query);
+$sql = "SELECT * FROM data";
+$result = mysqli_query($conn,$sql);
 
 if (!$result) {
     die('Query failed: ' . mysqli_error($con));
@@ -50,7 +50,7 @@ if (!$result) {
    </div>
    <div>
     <a href="list.php" class="mr-3 text-white">data</a>
-    <a href="" class="mr-3 text-white">About</a>
+    <a href="search.php" class="mr-3 text-white">Search</a>
     <a href="" class="mr-3 text-white">Contact</a>
     <a href="" class="mr-3 text-white">Blogs</a>
    </div>
@@ -89,8 +89,10 @@ if (!$result) {
             <td><?php echo $row['phone']; ?></td>
             <td><?php echo $row['address']; ?></td>   
             <td><?php echo $row['email']; ?></td>
-            <td><a href="update.php?id=<?php echo $row['index'] ;?>" class="text-primary"><i class="fa-solid fa-pen-to-square"></i> Update</a></td>
-            <td><a href="delete.php?id=<?php echo $row['index'] ;?>" class="text-danger"><i class="fa-solid fa-user-minus"></i> Delete</a></td>
+            <td><a href="update.php?id=<?php echo $row['index'] ;?>" class="text-primary">
+            <i class="fa-solid fa-pen-to-square"></i> Update</a></td>
+            <td><a href="delete.php?id=<?php echo $row['index'] ;?>" class="text-danger">
+            <i class="fa-solid fa-user-minus"></i> Delete</a></td>
         </tr>
     <?php
     }
